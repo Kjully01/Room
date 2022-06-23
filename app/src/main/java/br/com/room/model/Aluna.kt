@@ -12,5 +12,6 @@ data class Aluna (
     val id: Int,
     val name: String,
     val lastName: String,
-    val age: Int
+    val age: Int,
+    val email: String? = null
 ): Parcelable

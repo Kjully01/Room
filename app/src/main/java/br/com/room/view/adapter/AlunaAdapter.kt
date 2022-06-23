@@ -40,7 +40,7 @@ class AlunaAdapter(
                 tvName.text = aluna.name
                 tvLastName.text = aluna.lastName
                 tvAge.text = aluna.age.toString()
-                //tvEmail.text = aluna.email
+                tvEmail.text = aluna.email
 
                 root.setOnClickListener {
                     onAlunaClickListener.onAlunaClickListener(aluna)

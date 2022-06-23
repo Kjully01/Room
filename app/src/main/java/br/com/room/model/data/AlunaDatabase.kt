@@ -1,26 +1,32 @@
 package br.com.room.model.data
 
 import android.content.Context
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import br.com.room.model.Aluna
 
-@Database(entities = [Aluna::class], version = 1, exportSchema = true)
-abstract class AlunaDatabase: RoomDatabase() {
+@Database(
+    entities = [Aluna::class],
+    version = 2,
+    autoMigrations = [AutoMigration(from = 1, to = 2)],
+    exportSchema = true
+)
+abstract class AlunaDatabase : RoomDatabase() {
 
     abstract fun alunaDao(): AlunaDao
 
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: AlunaDatabase? = null
 
-        fun getDatabase(context: Context): AlunaDatabase{
+        fun getDatabase(context: Context): AlunaDatabase {
             val tempInstance = INSTANCE
-            if(tempInstance != null){
+            if (tempInstance != null) {
                 return tempInstance
             }
-            synchronized(this){
+            synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AlunaDatabase::class.java,

@@ -20,6 +20,8 @@
             android:background="@color/purple_500"
             app:titleCentered="true"
             app:title="Alunas"
+            app:titleTextColor="@color/white"
+            app:navigationIconTint="@color/white"
             />
 
     </com.google.android.material.appbar.AppBarLayout>

@@ -68,27 +68,32 @@ class AddFragment : Fragment() {
         binding.btnCadastro.setOnClickListener {
             if (etName.text.toString().isNotEmpty() &&
                 etLastName.text.toString().isNotEmpty() &&
-                etAge.text.toString().isNotEmpty()
+                etAge.text.toString().isNotEmpty() &&
+                etEmail.text.toString().isNotEmpty()
             ) {
                 val name = etName.text.toString()
                 val lastName = etLastName.text.toString()
                 val age = etAge.text.toString()
+                val email = etEmail.text.toString()
 
-                val aluna = Aluna(0, name, lastName, age.toInt())
+                val aluna = Aluna(0, name, lastName, age.toInt(), email)
+                //val aluna = Aluna(0, name, lastName, age.toInt())
                 viewModel.addAluna(aluna)
 
                 clean()
             } else {
-                Toast.makeText(requireContext(), "Preencha todos os dados", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Preencha todos os dados", Toast.LENGTH_SHORT)
+                    .show()
             }
 
         }
     }
 
-    private fun clean(){
+    private fun clean() {
         etName.setText("")
         etLastName.setText("")
         etAge.setText("")
+        etEmail.setText("")
     }
 
 }

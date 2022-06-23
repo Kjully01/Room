@@ -46,6 +46,7 @@ class UpdateFragment : Fragment() {
             etName.setText(args.currentAluna.name)
             etLastName.setText(args.currentAluna.lastName)
             etAge.setText(args.currentAluna.age.toString())
+            etEmail.setText(args.currentAluna.email)
         }
 
         listener()
@@ -77,28 +78,32 @@ class UpdateFragment : Fragment() {
         binding.btnUpdate.setOnClickListener {
             if (etName.text.toString().isNotEmpty() &&
                 etLastName.text.toString().isNotEmpty() &&
-                etAge.text.toString().isNotEmpty()
+                etAge.text.toString().isNotEmpty() &&
+                etEmail.text.toString().isNotEmpty()
             ) {
                 val name = etName.text.toString()
                 val lastName = etLastName.text.toString()
                 val age = etAge.text.toString()
+                val email = etEmail.text.toString()
 
-                val aluna = Aluna(args.currentAluna.id, name, lastName, age.toInt())
+                val aluna = Aluna(args.currentAluna.id, name, lastName, age.toInt(), email)
+                //val aluna = Aluna(args.currentAluna.id, name, lastName, age.toInt())
                 viewModel.updateAluna(aluna)
 
                 navigateList()
             } else {
-                Toast.makeText(requireContext(), "Preencha todos os dados", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Preencha todos os dados", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
-        binding.btnDelete.setOnClickListener{
+        binding.btnDelete.setOnClickListener {
             viewModel.deleteAluna(args.currentAluna)
             navigateList()
         }
     }
 
-    private fun navigateList(){
+    private fun navigateList() {
         findNavController().navigate(
             UpdateFragmentDirections.actionUpdateFragmentToListFragment()
         )
