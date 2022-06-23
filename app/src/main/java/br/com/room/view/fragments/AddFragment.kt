@@ -76,11 +76,19 @@ class AddFragment : Fragment() {
 
                 val aluna = Aluna(0, name, lastName, age.toInt())
                 viewModel.addAluna(aluna)
+
+                clean()
             } else {
                 Toast.makeText(requireContext(), "Preencha todos os dados", Toast.LENGTH_SHORT).show()
             }
 
         }
+    }
+
+    private fun clean(){
+        etName.setText("")
+        etLastName.setText("")
+        etAge.setText("")
     }
 
 }

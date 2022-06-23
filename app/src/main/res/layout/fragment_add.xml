@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:background="@color/purple_500"
             app:titleCentered="true"
+            app:title="Adicionar"
             />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -60,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="16dp"
-        android:text="Cadastrar"
+        android:text="@string/cadastrar"
         app:layout_constraintTop_toBottomOf="@id/etAge"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

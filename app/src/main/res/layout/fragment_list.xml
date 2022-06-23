@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:background="@color/purple_500"
             app:titleCentered="true"
+            app:title="Alunas"
             />
 
     </com.google.android.material.appbar.AppBarLayout>

@@ -13,9 +13,10 @@ import br.com.room.R
 import br.com.room.databinding.FragmentListBinding
 import br.com.room.model.Aluna
 import br.com.room.view.adapter.AlunaAdapter
+import br.com.room.view.adapter.AlunaClickListener
 import br.com.room.viewModel.AlunaViewModel
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), AlunaClickListener {
 
     private lateinit var binding: FragmentListBinding
 
@@ -70,7 +71,7 @@ class ListFragment : Fragment() {
     }
 
     private fun startAdapter() {
-        alunaAdapter = AlunaAdapter()
+        alunaAdapter = AlunaAdapter(this)
         binding.rvAlunas.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = alunaAdapter
@@ -85,6 +86,12 @@ class ListFragment : Fragment() {
         viewModel.readAllData.observe(viewLifecycleOwner, Observer { aluna ->
             setDataAdapter(aluna)
         })
+    }
+
+    override fun onAlunaClickListener(aluna: Aluna) {
+        findNavController().navigate(
+            ListFragmentDirections.actionListFragmentToUpdateFragment(aluna)
+        )
     }
 
 }

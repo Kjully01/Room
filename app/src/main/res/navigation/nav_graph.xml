@@ -34,5 +34,11 @@
         <action
             android:id="@+id/action_updateFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="currentAluna"
+            app:argType="br.com.room.model.Aluna" />
+        <action
+            android:id="@+id/action_updateFragment_to_addFragment"
+            app:destination="@id/addFragment" />
     </fragment>
 </navigation>

@@ -5,4 +5,7 @@
     <string name="name">Nome</string>
     <string name="last_name">Último nome</string>
     <string name="age">Idade</string>
+    <string name="update">Atualizar</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="delete">Excluir</string>
 </resources>
