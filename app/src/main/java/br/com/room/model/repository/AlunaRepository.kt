@@ -6,6 +6,8 @@ import br.com.room.model.data.AlunaDao
 
 class AlunaRepository(private val alunaDao: AlunaDao) {
 
+    val readAllData: LiveData<List<Aluna>> = alunaDao.readAllData()
+
     suspend fun addAluna(aluna: Aluna){
         alunaDao.addAluna(aluna)
     }
@@ -18,7 +20,4 @@ class AlunaRepository(private val alunaDao: AlunaDao) {
         alunaDao.deleteAluna(aluna)
     }
 
-    fun selectAlunas(): List<Aluna>{
-        return alunaDao.selectAlunas()
-    }
 }

@@ -17,6 +17,6 @@ interface AlunaDao {
     suspend fun deleteAluna(aluna: Aluna)
 
     @Query("SELECT * FROM aluna_table ORDER BY id ASC")
-    fun selectAlunas(): List<Aluna>
+    fun readAllData(): LiveData<List<Aluna>>
 
 }
